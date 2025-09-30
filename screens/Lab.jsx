@@ -9,12 +9,12 @@ const View = styled.View`
 
 
 
-const Stats = () => {
+const Lab = () => {
     return (
         <View>
-            <Text>Statistics Screen</Text>
+            <Text>Laboratory Screen</Text>
         </View>
     );  
 }
 
-export default Stats;
+export default Lab;
