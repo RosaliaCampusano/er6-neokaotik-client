@@ -34,6 +34,7 @@ const configuereGoogleAuth = async () => {
 const SignIn = async () => {
   const response = await GoogleAuth.signIn();
 
+  console.log(response)
   if (response.type === 'success') {
     const { idToken } = response.data;
 
@@ -42,7 +43,9 @@ const SignIn = async () => {
 
     const firebaseUser = await userCredential.user.getIdToken();
 
+    console.log("Entra")
     // --- Insert the spinner here ---
+    console.log(firebaseUser)
   }
 };
 
