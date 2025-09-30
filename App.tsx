@@ -3,7 +3,7 @@ import Splash from './components/splash';
 import React from 'react';
 
 function App() {
-  return <Splash />;
+  return <Login />;
 }
 
 export default App;
