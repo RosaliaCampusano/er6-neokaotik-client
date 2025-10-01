@@ -35,33 +35,30 @@ function App() {
             <NavigationContainer>
               <Tab.Navigator
                 screenOptions={({ route }) => ({
-                  tabBarIcon: ({focused, color, size}) => {
+                  tabBarIcon: ({ focused, color, size }) => {
                     let iconName;
 
-                    if(route.name === 'Home'){
+                    if (route.name === 'Home') {
                       iconName = 'home';
-                    }else if(route.name === 'Settings'){
+                    } else if (route.name === 'Settings') {
                       iconName = 'settings'
-                    }else if(route.name === 'Stats'){
+                    } else if (route.name === 'Stats') {
                       iconName = 'stats-chart';
-                    }else if(route.name === 'Lab'){
+                    } else if (route.name === 'Lab') {
                       iconName = 'flask'
                     }
-                    return <Ionicons name={iconName} color={color} size={20}/>
+                    return <Ionicons name={iconName} color={color} size={20} />
                   },
 
 
                 })}>
-                <Tab.Screen options={{headerShown: false}} name="Home" component={Home} />
-                <Tab.Screen options={{headerShown: false}} name="Settings" component={Settings} />
-                <Tab.Screen options={{headerShown: false}} name="Stats" component={Stats} />
-                <Tab.Screen options={{headerShown: false}} name="Lab" component={Lab} />
+                <Tab.Screen options={{ headerShown: false }} name="Home" component={Home} />
+                <Tab.Screen options={{ headerShown: false }} name="Settings" component={Settings} />
+                <Tab.Screen options={{ headerShown: false }} name="Stats" component={Stats} />
+                <Tab.Screen options={{ headerShown: false }} name="Lab" component={Lab} />
               </Tab.Navigator>
             </NavigationContainer>
-            : (actualState === ERROR_LOGGIN) ?
-              // Pantalla de error
-              <Error />
-              : false
+            : false
       }
     </>
   );
