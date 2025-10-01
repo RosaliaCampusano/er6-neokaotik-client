@@ -1,20 +1,19 @@
 import React from 'react';
-import { Text } from 'react-native';
-import styled from 'styled-components/native';
+import { AppState } from '../helpers/constants';
+import { View, Text, Button } from '../styled-components/settingStyled';
 
-const View = styled.View`
-    align-items: center; 
-    height: 500px;
-`;
-
-
-
-const Settings = () => {
-    return (
-        <View>
-            <Text>Settings Screen</Text>
-        </View>
-    );  
-}
+const Settings = ({ setActualState, setUser }: any) => {
+  const handlerPress = () => {
+    setActualState(AppState.LOGIN);
+    setUser(null);
+  };
+  return (
+    <View>
+      <Button onPress={handlerPress}>
+        <Text>Log out</Text>
+      </Button>
+    </View>
+  );
+};
 
 export default Settings;
