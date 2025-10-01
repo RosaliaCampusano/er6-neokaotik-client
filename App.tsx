@@ -3,8 +3,7 @@ import Splash from './components/splash';
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
-// import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
 import Home from './screens/Home';
@@ -13,6 +12,7 @@ import Stats from './screens/Stats';
 import Lab from './screens/Lab';
 import Error from './screens/Error';
 import { ScrollView } from 'react-native';
+
 
 
 const Tab = createBottomTabNavigator();
@@ -33,7 +33,25 @@ function App() {
           <Login />
           : (actualState === PLAYER_LOGGED) ?
             <NavigationContainer>
-              <Tab.Navigator>
+              <Tab.Navigator
+                screenOptions={({ route }) => ({
+                  tabBarIcon: ({focused, color, size}) => {
+                    let iconName;
+
+                    if(route.name === 'Home'){
+                      iconName = 'home';
+                    }else if(route.name === 'Settings'){
+                      iconName = 'settings'
+                    }else if(route.name === 'Stats'){
+                      iconName = 'stats-chart';
+                    }else if(route.name === 'Lab'){
+                      iconName = 'flask'
+                    }
+                    return <Ionicons name={iconName} color={color} size={20}/>
+                  },
+
+
+                })}>
                 <Tab.Screen options={{headerShown: false}} name="Home" component={Home} />
                 <Tab.Screen options={{headerShown: false}} name="Settings" component={Settings} />
                 <Tab.Screen options={{headerShown: false}} name="Stats" component={Stats} />
