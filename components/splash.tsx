@@ -2,11 +2,11 @@ import React from 'react';
 import { Container, Image } from '../styled-components/splashStyle';
 import { AppState } from '../helpers/constants';
 
-const Splash = ({ setActualState }: any) => {
+const Splash = ({ setActualState, user }: any) => {
   return (
     <Container>
       <Image source={require('../assets/splash-screen.jpg')} />
-      {setActualState(AppState.LOGIN)}
+      {user === null ? setActualState(AppState.LOGIN) : ''}
     </Container>
   );
 };
