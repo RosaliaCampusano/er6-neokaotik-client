@@ -28,7 +28,7 @@ const ErrorMessage = ({ message, setMessage }: ErrorMessageProps) => {
       />
       <Text>{message}</Text>
       <Button onPress={handlerPress}>
-        <ButtonText>Discard</ButtonText>
+        <ButtonText>Dismiss</ButtonText>
       </Button>
     </Container>
   );
