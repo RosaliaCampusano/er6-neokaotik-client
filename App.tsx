@@ -5,17 +5,29 @@ import { AppState } from './helpers/constants';
 import { GoogleAuth } from 'react-native-google-auth';
 import { webClientId, androidClientId } from './credentials';
 import ErrorMessage from './screens/Error';
+import Navigation from './components/navigation';
 
 function App() {
+  const [user, setUser] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [actualState, setActualState] = useState(AppState.LOGIN);
+
   useEffect(() => {
-    configuereGoogleAuth();
+    configuereGoogleAuth(setUser);
   }, []);
 
-  const [actualState, setActualState] = useState(AppState.LOGIN);
-  const [errorMessage, setErrorMessage] = useState('');
+  console.log(user);
+
   return (
     <>
-      {changeScreen(actualState, setActualState, errorMessage, setErrorMessage)}
+      {changeScreen(
+        actualState,
+        setActualState,
+        errorMessage,
+        setErrorMessage,
+        setUser,
+        user,
+      )}
     </>
   );
 }
@@ -25,29 +37,44 @@ const changeScreen = (
   setActualState: any,
   errorMessage: string,
   setErrorMessage: any,
+  setUser: any,
+  user: any,
 ) => {
   switch (actualState) {
     case AppState.SPLASH_SCREEN:
-      return <Splash setActualState={setActualState} />;
+      return <Splash setActualState={setActualState} user={user} />;
     case AppState.LOGIN:
       return (
         <Login
           setActualState={setActualState}
           setErrorMessage={setErrorMessage}
+          setUser={setUser}
         />
       );
     case AppState.ERROR:
       return (
-        <ErrorMessage message={errorMessage} setMessage={setErrorMessage} />
+        <ErrorMessage
+          message={errorMessage}
+          setMessage={setErrorMessage}
+          setActualState={setActualState}
+        />
       );
+    case AppState.HOME:
+      return <Navigation setActualState={setActualState} setUser={setUser} />;
   }
 };
 
-const configuereGoogleAuth = async () => {
+const configuereGoogleAuth = async (setUser: any) => {
   await GoogleAuth.configure({
     webClientId: webClientId,
     androidClientId: androidClientId,
   });
+
+  const currentUser = await GoogleAuth.getCurrentUser();
+
+  if (currentUser !== null) {
+    setUser(currentUser);
+  }
 };
 
 export default App;
