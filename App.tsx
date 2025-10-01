@@ -17,12 +17,13 @@ import { ScrollView } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
+//Poner splash screen value
 const SIGN_IN_TO_APP = 0;
 const PLAYER_LOGGED = 1;
 const ERROR_LOGGIN = 2;
 
 function App() {
-  const [actualState, setActualState] = useState(0);
+  const [actualState, setActualState] = useState(1);
 
 
   return (
@@ -33,11 +34,10 @@ function App() {
           : (actualState === PLAYER_LOGGED) ?
             <NavigationContainer>
               <Tab.Navigator>
-                <Tab.Screen name="Login" component={Login} />
-                <Tab.Screen name="Home" component={Home} />
-                <Tab.Screen name="Settings" component={Settings} />
-                <Tab.Screen name="Stats" component={Stats} />
-                <Tab.Screen name="Lab" component={Lab} />
+                <Tab.Screen options={{headerShown: false}} name="Home" component={Home} />
+                <Tab.Screen options={{headerShown: false}} name="Settings" component={Settings} />
+                <Tab.Screen options={{headerShown: false}} name="Stats" component={Stats} />
+                <Tab.Screen options={{headerShown: false}} name="Lab" component={Lab} />
               </Tab.Navigator>
             </NavigationContainer>
             : (actualState === ERROR_LOGGIN) ?
