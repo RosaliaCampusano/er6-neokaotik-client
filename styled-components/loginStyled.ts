@@ -34,4 +34,14 @@ const Text = styled.Text`
   top: 15px;
 `;
 
-export { Container, Image, Button, Text };
+const SpinnerWrapper = styled.View`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+`;
+
+export { Container, Image, Button, Text, SpinnerWrapper };
