@@ -7,23 +7,32 @@ const Container = styled(ImageBackground)`
   align-items: center;
 `;
 
-const Image = styled.Image`
+const ImageWrapper = styled.View`
   width: 70%;
   height: 65%;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Image = styled.Image`
+  width: 100%;
+  height: 100%;
   filter: brightness(1.5);
   position: absolute;
+  top: 0;
+  left: 0;
 `;
 
 const Text = styled.Text`
-  position: absolute;
-  top: 40%;
-  left: 30%;
-  right: 10%;
   font-size: 15px;
   font-weight: bold;
-  text-align: left;
-  color: black;
+  color: white;
   text-shadow: 1px 1px 3px black;
+  text-align: center;
+  padding: 40px;
+  border-radius: 10px;
+  width: 80%;
 `;
 
 const Button = styled.TouchableOpacity`
@@ -35,12 +44,12 @@ const Button = styled.TouchableOpacity`
   border-radius: 10px;
 `;
 
-const ButtonText = styled(Text)`
+const ButtonText = styled.Text`
   color: rgb(177 164 144);
   text-align: center;
   font-weight: bold;
-  margin-top: -6px;
-  margin-left: -16px;
+  margin-top: 10px;
+  margin-left: -5px;
 `;
 
-export { Container, Button, ButtonText, Image, Text };
+export { Container, Button, ButtonText, Image, ImageWrapper, Text };
