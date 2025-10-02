@@ -10,13 +10,12 @@ import Navigation from './components/navigation';
 function App() {
   const [user, setUser] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
-  const [actualState, setActualState] = useState(AppState.LOGIN);
+  const [actualState, setActualState] = useState(AppState.SPLASH_SCREEN);
 
   useEffect(() => {
     configuereGoogleAuth(setUser);
   }, []);
 
-  console.log(user);
 
   return (
     <>
@@ -71,7 +70,7 @@ const configuereGoogleAuth = async (setUser: any) => {
   });
 
   const currentUser = await GoogleAuth.getCurrentUser();
-
+  
   if (currentUser !== null) {
     setUser(currentUser);
   }
