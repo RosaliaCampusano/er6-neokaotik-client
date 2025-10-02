@@ -1,7 +1,7 @@
 export const sendTokenRequest = async (firebaseToken: string) => {
   const response = await fetch(
-    //http://10.50.0.50:6000/api/
-    'https://er6-neokaotik-server.onrender.com/api/',
+    //https://er6-neokaotik-server.onrender.com/api/'
+    'http://10.50.0.50:6000/api/',
     {
       method: 'POST',
       headers: {
