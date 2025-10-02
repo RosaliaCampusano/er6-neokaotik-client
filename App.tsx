@@ -52,26 +52,29 @@ const configuereGoogleAuth = async (user: any, setUser: any, setActualState: any
   });
 
   GoogleAuth.getCurrentUser().then(
+    async (currentUser) => {
       auth().onAuthStateChanged((user) => {
-      if(user) setUser(user);
+        if(currentUser) setUser(currentUser);
 
-      setTimeout(() => {
-        try {
-            if (user) {
-              console.log('Current user:', user);
-              setActualState(AppState.HOME);
-            } else {
-              console.log('No user is currently signed in');
-              setActualState(AppState.LOGIN);
-            }
-            return user;
+        setTimeout(() => {
+          try {
+              if (currentUser) {
+                console.log('Current user:', currentUser);
+                setActualState(AppState.HOME);
+              } else {
+                console.log('No user is currently signed in');
+                setActualState(AppState.LOGIN);
+              }
+              return currentUser;
 
-        } catch (error) {
-          console.error('Failed to get current user:', error);
-          setActualState(AppState.ERROR);
-        }
-      }, 2000);
-    })
+          } catch (error) {
+            console.error('Failed to get current user:', error);
+            setActualState(AppState.ERROR);
+          }
+        }, 2000);
+      })
+    }
+    
   );
 };
 
