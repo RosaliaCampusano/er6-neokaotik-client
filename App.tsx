@@ -6,6 +6,7 @@ import { GoogleAuth } from 'react-native-google-auth';
 import { webClientId, androidClientId } from './credentials';
 import ErrorMessage from './screens/Error';
 import Navigation from './components/navigation';
+import auth from '@react-native-firebase/auth';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -51,42 +52,27 @@ const configuereGoogleAuth = async (user: any, setUser: any, setActualState: any
   });
 
   GoogleAuth.getCurrentUser().then(
-    (currentUser) => {
-      setUser(currentUser);
-
+      auth().onAuthStateChanged((user) => {
+      if(user) setUser(user);
 
       setTimeout(() => {
         try {
-          if (currentUser) {
-            console.log('Current user:', currentUser);
-            setActualState(AppState.HOME);
-          } else {
-            console.log('No user is currently signed in');
-            setActualState(AppState.LOGIN);
-          }
-          return currentUser;
+            if (user) {
+              console.log('Current user:', user);
+              setActualState(AppState.HOME);
+            } else {
+              console.log('No user is currently signed in');
+              setActualState(AppState.LOGIN);
+            }
+            return user;
+
         } catch (error) {
           console.error('Failed to get current user:', error);
           setActualState(AppState.ERROR);
         }
       }, 2000);
-    }
-
+    })
   );
 };
-
-
-
-const refreshTokens = async () => {
-  try {
-    const tokens = await GoogleAuth.refreshTokens();
-    console.log(`---------------------------------------------------------------\nToken is refreshed, now its tokenID is:\n///////////////////\n${tokens.idToken}\n///////////////////\nAnd expires in:\n///////////////////\n${tokens.expiresAt}\n///////////////////\n${tokens}\n---------------------------------------------------------------\n`);
-  } catch (error) {
-    console.error('Token refresh failed:', error);
-  }
-};
-
-
-
 
 export default App;
