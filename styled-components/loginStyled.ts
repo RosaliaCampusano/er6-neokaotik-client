@@ -1,24 +1,18 @@
 import styled from 'styled-components/native';
+import { ImageBackground } from 'react-native';
 
-const Container = styled.View`
+const Container = styled(ImageBackground)`
   width: 100%;
   height: 100%;
+  flex: 1;
   justify-content: center;
   align-items: center;
-`;
-
-const Image = styled.Image`
-  width: 100%;
-  height: 100%;
-  transform: scale(1.1);
   filter: brightness(2);
 `;
-
 const Button = styled.TouchableOpacity`
   width: 45%;
   height: 60px;
-  position: absolute;
-  top: 300px;
+  position: relative;
   background-color: transparent;
   border: 5px solid white;
   border-radius: 10px;
@@ -34,14 +28,4 @@ const Text = styled.Text`
   top: 15px;
 `;
 
-const SpinnerWrapper = styled.View`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  justify-content: center;
-  align-items: center;
-`;
-
-export { Container, Image, Button, Text, SpinnerWrapper };
+export { Container, Button, Text };

@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Container,
-  Image,
-  Button,
-  Text,
-  SpinnerWrapper,
-} from '../styled-components/loginStyled';
+import { Container, Button, Text } from '../styled-components/loginStyled';
 import { GoogleAuth } from 'react-native-google-auth';
 import auth from '@react-native-firebase/auth';
 import { sendTokenRequest } from '../request/tokenResquest';
@@ -22,10 +16,10 @@ const Login = ({ setActualState, setErrorMessage, setUser }: LoginProps) => {
   const [loading, setLoading] = useState(false);
 
   const SignIn = async () => {
+    setLoading(true);
     const response = await GoogleAuth.signIn();
 
     if (response.type === 'success') {
-      setLoading(true);
       const { idToken } = response.data;
 
       const googleCredential = auth.GoogleAuthProvider.credential(idToken);
@@ -41,6 +35,8 @@ const Login = ({ setActualState, setErrorMessage, setUser }: LoginProps) => {
           "Oops...This email doesn't exist in Kaotika world. Try again Bastard!",
         );
         setActualState(AppState.ERROR);
+        setLoading(false);
+        return;
       } else {
         const data = await serverResponse.json();
         console.log(data);
@@ -51,13 +47,12 @@ const Login = ({ setActualState, setErrorMessage, setUser }: LoginProps) => {
     }
   };
   return (
-    <Container>
-      <Image source={require('../assets/login-screen.jpg')} />
-
+    <Container
+      source={require('../assets/login-screen.jpg')}
+      resizeMode="cover"
+    >
       {loading ? (
-        <SpinnerWrapper>
-          <CircleFade size={55} color="#fff" />
-        </SpinnerWrapper>
+        <CircleFade size={55} color="#fff" />
       ) : (
         <Button onPress={SignIn}>
           <Text>Sign In with Google</Text>
