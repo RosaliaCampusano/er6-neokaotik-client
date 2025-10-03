@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/KochAltschrift.ttf",
+      "sha1": "1cfea23dca9999875359ba8250ab0a61d744f1df"
+    },
+    {
+      "path": "assets/fonts/Norse.otf",
+      "sha1": "22a23168cbc3399cfda9006520422fbce8495731"
+    },
+    {
+      "path": "assets/fonts/Norsebold.otf",
+      "sha1": "cdd9ede0224590f030957b697370674c3418e38a"
+    }
+  ]
+}

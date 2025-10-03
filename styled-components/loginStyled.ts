@@ -1,31 +1,32 @@
 import styled from 'styled-components/native';
 import { ImageBackground } from 'react-native';
 
+
 const Container = styled(ImageBackground)`
   width: 100%;
   height: 100%;
   flex: 1;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   filter: brightness(2);
 `;
 const Button = styled.TouchableOpacity`
   width: 45%;
   height: 60px;
   position: relative;
-  background-color: transparent;
-  border: 5px solid white;
-  border-radius: 10px;
+  background-color: rgba(0,0,0,0.6);
+  border: 2px solid rgba(39, 75, 63, 1);
+  border-radius: 6px;
   margin-left: 1px;
+  align-items: center;
 `;
 
 const Text = styled.Text`
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 21px;
   color: #ffffffff;
-  position: absolute;
-  left: 15px;
-  top: 15px;
+  position: relative;
+  top: 30%;
+  font-family: 'KochAltschrift';
 `;
 
 export { Container, Button, Text };

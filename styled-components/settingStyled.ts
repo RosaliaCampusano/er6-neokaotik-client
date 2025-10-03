@@ -17,8 +17,9 @@ const Button = styled.TouchableOpacity`
 const Text = styled.Text`
   color: #ffffff;
   text-align: center;
-  font-weight: bold;
   top: 10px;
+  font-family: 'KochAltschrift';
+  font-size: 21px;
 `;
 
 export { View, Button, Text };
