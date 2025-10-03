@@ -2,6 +2,7 @@ import React from 'react';
 import { AppState } from '../helpers/constants';
 import { View, Text, Button } from '../styled-components/settingStyled';
 import { GoogleAuth } from 'react-native-google-auth';
+import { ImageContainer } from '../styled-components/screensBackground';
 
 const signOut = async () => {
   try {
@@ -19,11 +20,14 @@ const Settings = ({ setActualState, setUser }: any) => {
     setUser(null);
   };
   return (
-    <View>
+    <ImageContainer
+      source={require('../assets/backgroundNavigation.png')}
+      resizeMode="cover"
+    >
       <Button onPress={handlerPress}>
         <Text>Log out</Text>
       </Button>
-    </View>
+    </ImageContainer>
   );
 };
 

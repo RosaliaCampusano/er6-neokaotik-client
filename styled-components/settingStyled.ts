@@ -6,12 +6,13 @@ const View = styled.View`
 `;
 
 const Button = styled.TouchableOpacity`
-  position: absolute;
-  top: 61%;
+  position: relative;
   width: 90px;
   height: 40px;
   background-color: #000000c3;
   border-radius: 10px;
+  margin-left: 1px;
+  margin-top: 50p;
 `;
 
 const Text = styled.Text`

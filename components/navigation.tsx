@@ -1,7 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
 import Home from '../screens/Home';
 import Settings from '../screens/Settings';
 import Stats from '../screens/Stats';
@@ -32,8 +31,14 @@ const Navigation = ({ setActualState, setUser }: NavigationProps) => {
               } else if (route.name === 'Lab') {
                 iconName = 'flask';
               }
-              return <Ionicons name={iconName} color={color} size={20} />;
+              return <Ionicons name={iconName} color="#213d39" size={20} />;
             },
+            tabBarStyle: {
+              backgroundColor: '#0a171e',
+              borderColor: '#333',
+            },
+            tabBarInactiveTintColor: '#345550',
+            tabBarActiveTintColor: '#6baaa4ff',
           })}
         >
           <Tab.Screen
