@@ -1,20 +1,13 @@
 import React from 'react';
-import { Text } from 'react-native';
-import styled from 'styled-components/native';
-
-const View = styled.View`
-    align-items: center; 
-    height: 500px;
-`;
-
-
+import { ImageContainer } from '../styled-components/screensBackground';
 
 const Home = () => {
-    return (
-        <View>
-            <Text>Home Screen</Text>
-        </View>
-    );  
-}
+  return (
+    <ImageContainer
+      source={require('../assets/backgroundNavigation.png')}
+      resizeMode="cover"
+    />
+  );
+};
 
 export default Home;
