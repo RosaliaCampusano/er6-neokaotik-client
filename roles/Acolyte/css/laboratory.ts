@@ -8,12 +8,13 @@ const Button = styled.TouchableOpacity`
   height: 10%;
   background-color: rgba(3, 10, 9);
   border-radius: 10px;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Text = styled.Text`
   color: #ffffff;
   text-align: center;
-  top: 15%;
   font-family: 'KochAltschrift';
   font-size: 29px;
 `;
