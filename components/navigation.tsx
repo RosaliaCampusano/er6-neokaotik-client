@@ -1,70 +1,24 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Home from '../screens/Home';
-import Settings from '../screens/Settings';
-import Stats from '../screens/Stats';
-import Lab from '../screens/Lab';
+import React from 'react';
+import { ROL } from '../helpers/constants';
+import IstvanNavigation from '../roles/Istvan/IstvanNavigation';
+import AcolyteNavigation from '../roles/Acolyte/AcolyteNavigation';
+import VillianNavigation from '../roles/Villian/VillianNavigation';
+import MortimerNavigation from '../roles/Mortimer/MortimerNavigation';
 
-const Tab = createBottomTabNavigator();
-
-type NavigationProps = {
-  setActualState(state: number): void;
-  setUser: any;
+const Navigation = () => {
+  return <>{setScreenByRol(ROL.ACOLYTE)}</>;
 };
 
-const Navigation = ({ setActualState, setUser }: NavigationProps) => {
-  return (
-    <>
-      <NavigationContainer>
-        <Tab.Navigator
-          screenOptions={({ route }) => ({
-            tabBarIcon: ({ focused, color, size }) => {
-              let iconName;
-
-              if (route.name === 'Home') {
-                iconName = 'home';
-              } else if (route.name === 'Settings') {
-                iconName = 'settings';
-              } else if (route.name === 'Stats') {
-                iconName = 'stats-chart';
-              } else if (route.name === 'Lab') {
-                iconName = 'flask';
-              }
-              return <Ionicons name={iconName} color="#213d39" size={20} />;
-            },
-            tabBarStyle: {
-              backgroundColor: '#0a171e',
-              borderColor: '#333',
-            },
-            tabBarInactiveTintColor: '#345550',
-            tabBarActiveTintColor: '#6baaa4ff',
-          })}
-        >
-          <Tab.Screen
-            options={{ headerShown: false }}
-            name="Home"
-            component={Home}
-          />
-          <Tab.Screen options={{ headerShown: false }} name="Settings">
-            {() => (
-              <Settings setActualState={setActualState} setUser={setUser} />
-            )}
-          </Tab.Screen>
-          <Tab.Screen
-            options={{ headerShown: false }}
-            name="Stats"
-            component={Stats}
-          />
-          <Tab.Screen
-            options={{ headerShown: false }}
-            name="Lab"
-            component={Lab}
-          />
-        </Tab.Navigator>
-      </NavigationContainer>
-    </>
-  );
+const setScreenByRol = (Rol: string) => {
+  if (Rol === ROL.MORTIMER) {
+    return <MortimerNavigation />;
+  } else if (Rol === ROL.VILLIAN) {
+    return <VillianNavigation />;
+  } else if (Rol === ROL.ISTVAN) {
+    return <IstvanNavigation />;
+  } else if (Rol === ROL.ACOLYTE) {
+    return <AcolyteNavigation />;
+  }
 };
 
 export default Navigation;

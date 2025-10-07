@@ -5,14 +5,10 @@ import auth from '@react-native-firebase/auth';
 import { sendTokenRequest } from '../request/tokenResquest';
 import { AppState } from '../helpers/constants';
 import { CircleFade } from 'react-native-animated-spinkit';
+import { AppProviderContext } from '../helpers/AppProvider';
 
-interface LoginProps {
-  setActualState: (state: number) => void;
-  setErrorMessage: (message: string) => void;
-  setUser: any;
-}
-
-const Login = ({ setActualState, setErrorMessage, setUser }: LoginProps) => {
+const Login = () => {
+  const { setUser, setErrorMessage, setActualState } = AppProviderContext();
   const [loading, setLoading] = useState(false);
 
   const SignIn = async () => {
