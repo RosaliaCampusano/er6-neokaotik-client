@@ -11,7 +11,8 @@ import { AppState } from '../helpers/constants';
 import { AppProviderContext } from '../helpers/AppProvider';
 
 const ErrorMessage = () => {
-  const { message, setErrorMessage, setActualState } = AppProviderContext();
+  const { errorMessage, setErrorMessage, setActualState } =
+    AppProviderContext();
 
   const handlerPress = () => {
     setErrorMessage('');
@@ -28,7 +29,7 @@ const ErrorMessage = () => {
           source={require('../assets/error-message.png')}
           resizeMode="contain"
         />
-        <Text numberOfLines={4}>{message}</Text>
+        <Text numberOfLines={4}>{errorMessage}</Text>
       </ImageWrapper>
       <Button onPress={handlerPress}>
         <ButtonText>Dismiss</ButtonText>
