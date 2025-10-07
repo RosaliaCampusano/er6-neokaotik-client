@@ -10,6 +10,6 @@ const ImageContainer = styled(ImageBackground)`
   filter: brightness(1.1);
 `;
 
-const urlImage = require('../../../assets/backgroundNavigation.png');
+const urlImage = require('../../../assets/acolyte/backgroundNavigation.png');
 
 export { ImageContainer, urlImage };

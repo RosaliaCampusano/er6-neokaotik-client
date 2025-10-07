@@ -1,7 +1,11 @@
-const VillianNavigation = () => {
-  console.log('Villian');
+import Home from './components/Home';
 
-  return <></>;
+const VillianNavigation = () => {
+  return (
+    <>
+      <Home />
+    </>
+  );
 };
 
 export default VillianNavigation;
