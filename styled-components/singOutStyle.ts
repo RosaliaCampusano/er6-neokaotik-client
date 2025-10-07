@@ -1,10 +1,5 @@
 import styled from 'styled-components/native';
 
-const View = styled.View`
-  align-items: center;
-  height: 500px;
-`;
-
 const Button = styled.TouchableOpacity`
   position: relative;
   width: 90px;
@@ -23,4 +18,4 @@ const Text = styled.Text`
   font-size: 21px;
 `;
 
-export { View, Button, Text };
+export { Button, Text };
