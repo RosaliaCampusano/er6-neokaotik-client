@@ -1,7 +1,11 @@
-const IstvanNavigation = () => {
-  console.log('Istvan');
+import Home from './components/Home';
 
-  return <></>;
+const IstvanNavigation = () => {
+  return (
+    <>
+      <Home />
+    </>
+  );
 };
 
 export default IstvanNavigation;
