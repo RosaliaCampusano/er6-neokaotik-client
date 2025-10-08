@@ -18,6 +18,7 @@ const Button = styled.TouchableOpacity`
   margin: 10px 0;
   justify-content: center;
   align-items: center;
+  margin-top: 80%;
 `;
 
 const LabButton = styled.TouchableOpacity`
@@ -47,5 +48,14 @@ const Text = styled.Text`
 `;
 
 const urlImage = require('../../../assets/mortimer/home.png');
+const LabUrl = require('../../../assets/mortimer/lab.png');
 
-export { ImageContainer, urlImage, ExitButton, Text, LabButton };
+export {
+  ImageContainer,
+  urlImage,
+  ExitButton,
+  Text,
+  LabButton,
+  LabUrl,
+  Button,
+};
