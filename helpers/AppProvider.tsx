@@ -11,6 +11,7 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
   const [actualState, setActualState] = useState(AppState.SPLASH_SCREEN);
+  const [scan, setScanning] = useState(false);
 
   return (
     <AppContext.Provider
@@ -18,9 +19,11 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
         user,
         setUser,
         errorMessage,
+        scan,
         setErrorMessage,
         actualState,
         setActualState,
+        setScanning,
       }}
     >
       {children}
