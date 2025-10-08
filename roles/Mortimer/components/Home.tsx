@@ -5,15 +5,20 @@ import {
   ExitButton,
   Text,
   LabButton,
-} from '../css/homeStyle';
+} from '../css/style';
 import { handlerPress } from '../../../components/singOut';
 import { AppProviderContext } from '../../../helpers/AppProvider';
+import { MortimerState } from '../../../helpers/constants';
 
 const Home = () => {
-  const { setActualState, setUser } = AppProviderContext();
+  const { setActualState, setUser, setMortimerState } = AppProviderContext();
   return (
     <ImageContainer source={urlImage} resizeMode="cover">
-      <LabButton>
+      <LabButton
+        onPress={() => {
+          setMortimerState(MortimerState.LAB);
+        }}
+      >
         <Text>Lab</Text>
       </LabButton>
       <ExitButton
