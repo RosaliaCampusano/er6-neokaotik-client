@@ -16,3 +16,8 @@ export const ROL = {
   ISTVAN: 'Istvan',
   ACOLYTE: 'Acolyte',
 };
+
+export const MortimerState = {
+  HOME: 0,
+  LAB: 1,
+};
