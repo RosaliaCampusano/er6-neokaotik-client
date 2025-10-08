@@ -1,6 +1,8 @@
+import React from 'react';
+import Home from './components/Home';
+
 const MortimerNavigation = () => {
-  console.log('Mortimer');
-  return <></>;
+  return <Home />;
 };
 
 export default MortimerNavigation;
