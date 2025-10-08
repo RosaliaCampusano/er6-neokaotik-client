@@ -50,7 +50,7 @@ const QRToScan = (email: string) => (
     value={email}
     size={250}
     color="rgba(87, 175, 216)"
-    backgroundColor="transparent"
+    backgroundColor="black"
   />
 );
 
