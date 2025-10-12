@@ -1,5 +1,5 @@
 import React, { useContext, createContext, useState } from 'react';
-import { AppState, MortimerState } from './constants';
+import { AppState, MortimerState, IstvanState } from './constants';
 
 export const AppContext = createContext<any>(null);
 
@@ -17,6 +17,7 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [mortimerState, setMortimerState] = useState<number>(
     MortimerState.HOME,
   );
+  const [istvanState, setIstvanState] = useState<number>(IstvanState.HOME);
 
   return (
     <AppContext.Provider
@@ -26,6 +27,8 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
         errorMessage,
         scan,
         mortimerState,
+        istvanState,
+        setIstvanState,
         setErrorMessage,
         actualState,
         setActualState,

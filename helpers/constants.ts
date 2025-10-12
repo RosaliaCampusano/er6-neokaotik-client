@@ -21,3 +21,8 @@ export const MortimerState = {
   HOME: 0,
   LAB: 1,
 };
+
+export const IstvanState = {
+  HOME: 0,
+  SCANNER: 1,
+};
