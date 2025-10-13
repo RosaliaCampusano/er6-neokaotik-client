@@ -8,8 +8,8 @@ import { io } from "socket.io-client";
 
 const Navigation = () => {
   console.log("socket connection");
-  // const socket = io(URL.render);
-  const socket = io("http://192.168.0.24:3000/");
+  const socket = io(URL.render);
+  // const socket = io("http://192.168.0.24:3000/");
 
   socket.on("connect", () => {
     console.log("Connected at server with ID:", socket.id);
