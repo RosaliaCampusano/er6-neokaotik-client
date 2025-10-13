@@ -2,7 +2,7 @@ import { URL } from '../helpers/constants';
 
 export const sendTokenRequest = async (firebaseToken: string) => {
   console.log('Sending Token request to server...');
-  const response = await fetch(URL.render, {
+  const response = await fetch(/*URL.render*/'http://192.168.0.24:3000/api/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
