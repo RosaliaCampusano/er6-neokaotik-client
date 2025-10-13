@@ -1,25 +1,20 @@
-import React from 'react';
-import { ROL, URL } from '../helpers/constants';
+import React, { useEffect } from 'react';
+import { ROL } from '../helpers/constants';
 import IstvanNavigation from '../roles/Istvan/IstvanNavigation';
 import AcolyteNavigation from '../roles/Acolyte/AcolyteNavigation';
 import VillianNavigation from '../roles/Villian/VillianNavigation';
 import MortimerNavigation from '../roles/Mortimer/MortimerNavigation';
-import { io } from "socket.io-client";
+import { initSocket, performSocketCleanUp } from '../socket/socket';
+import { AppProviderContext } from '../helpers/AppProvider';
 
 const Navigation = () => {
-  console.log("socket connection");
-  const socket = io(URL.render);
-  // const socket = io("http://192.168.0.24:3000/");
+  const { user } = AppProviderContext();
 
-  socket.on("connect", () => {
-    console.log("Connected at server with ID:", socket.id);
-  });
+  useEffect(() => {
+    initSocket(user.data.email);
 
-  socket.on("connect_error", (err) => {
-    console.error(err.message);
-  });
-  
-  console.log(socket);
+    return performSocketCleanUp;
+  }, []);
 
   return <>{setScreenByRol(ROL.ACOLYTE)}</>;
 };

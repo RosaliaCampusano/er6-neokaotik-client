@@ -26,3 +26,13 @@ export const IstvanState = {
   HOME: 0,
   SCANNER: 1,
 };
+
+export enum SocketGeneralEvents {
+  CONNECT = 'connect',
+}
+
+export enum SocketServerToClientEvents {}
+
+export enum SocketClientToServerEvents {
+  PLAYER_CONNECTED = 'player-connected',
+}
