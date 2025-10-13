@@ -11,10 +11,12 @@ const Navigation = () => {
   const { user } = AppProviderContext();
 
   useEffect(() => {
-    initSocket(user.data.email);
+    if (user) {
+      initSocket(user.data.email);
 
-    return performSocketCleanUp;
-  }, []);
+      return performSocketCleanUp;
+    }
+  }, [user]);
 
   return <>{setScreenByRol(ROL.ACOLYTE)}</>;
 };
